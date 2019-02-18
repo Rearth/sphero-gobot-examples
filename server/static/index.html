@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sphero SPRK+ Control</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts/circleAnim.js"></script>
+    <script src="scripts/mapHandler.js"></script>
+    <script src="scripts/game.js"></script>
+</head>
+
+<body oncontextmenu="return false;">
+    <div class="header">
+        <p class="title">Sphero Control Panel</p>
+        <div id="position">Position</div>
+        <div id="state" style="color:purple"></div>
+        <br id="separator"/>
+        <p>
+            <a id="startButton" class="nice_btn" href="start/">Connect</a>
+            <a id="homeButton" class="nice_btn" href="home/">Home</a>
+            <a id="resetButton" class="nice_btn" onclick="clearCanvas();">Reset</a>
+        </p>
+    </div>
+    <div class="control rightMenu">
+        <p>
+            <label class="switch">
+                <input type="checkbox" id="markerToggle">
+                <span class="slider round"></span>
+            </label>
+            <label for="markerToggle">Markers</label>
+        </p>
+        <p>
+            <label class="switch">
+                <input type="checkbox" id="queueToggle">
+                <span class="slider round"></span>
+            </label>
+            <label for="queueToggle">Queue Markers</label>
+        </p>
+        <p>
+            <input type="number" id="mapSize" min="50" max="3000" value="200" onchange="updateScale()">
+            <label for="mapSize">Map Width (cm)</label>
+        </p>
+        <p id="connectionDisplay">connected</p>
+        <p>Points:
+            <span id="pointsDisplay">0</span>
+        </p>
+        <p>Boosts:
+            <span id="boostsDisplay">0</span>
+        </p>
+        <p>Missed:
+            <span id="missesDisplay">0</span>
+        </p>
+    </div>
+    <canvas id="canvas" class="center" width="1200" height="700" style="cursor:crosshair;background:url(http://frida-levy-gesamtschule.de/wp-content/uploads/2018/01/plain-white-wallpaper-for-android-abstracts-hd-wallpaper.jpg)"></canvas>
+
+    <!-- <img class="center" width="1200" height="700" src="https://img1.cgtrader.com/items/635349/233a8f2e63/low-poly-planets-3d-model-low-poly-max-obj-3ds-fbx-stl-mtl.png"
+            alt="Schematic view of the room" ismap> -->
+
+    <img id="sphero" class="sphero" width="64" height="64" src="images/sphero_icon.png"
+        alt="Sphero">
+    <div id="markers"></div>
+    <!-- <div id="targetMarker" class="sphero targetMarker">
+        <div class="arc_q"></div>
+        <div class="arc_q"></div>
+        <div class="arc_q"></div>
+        <div class="arc_q"></div>
+    </div>
+    <p id="reachedMarker" class="reachedMarker"></p>
+    <p id="boostUseMarker" class="reachedMarker"></p>
+    <p id="boostIcon" class="sphero boostIcon">
+        <img width="20" height="20" src="images/boost_icon.png"
+        alt="boost icon">
+    </p> -->
+
+</body>
+
+</html>
