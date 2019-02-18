@@ -18,6 +18,8 @@ import (
 	"gobot.io/x/gobot/platforms/sphero/sprkplus"
 )
 
+//used to create a simple plot of the route from the sphero. Control it with WASD
+
 type sprkbot struct {
 	*sprkplus.SPRKPlusDriver
 	heading uint16

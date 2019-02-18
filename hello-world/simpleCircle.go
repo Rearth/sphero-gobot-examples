@@ -10,6 +10,8 @@ import (
 	"gobot.io/x/gobot/platforms/sphero/sprkplus"
 )
 
+//driver the robot in a circle, 2 times
+
 func cirlce() {
 
 	//direction which the bot is currently facing

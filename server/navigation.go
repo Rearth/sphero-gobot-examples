@@ -13,6 +13,8 @@ import (
 	"gobot.io/x/gobot/platforms/sphero/sprkplus"
 )
 
+//updated version of the navigation, used by the server to control the sphero and get current information
+
 //Sprkbot contains relevant data to control the sphero
 type Sprkbot struct {
 	*sprkplus.SPRKPlusDriver

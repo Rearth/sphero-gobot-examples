@@ -13,6 +13,9 @@ import (
 	"gobot.io/x/gobot"
 )
 
+//server serves static files via http requests and reacts to specific methods to control the sphero. The navigation.go
+//file is used to actuall control the sphero
+
 //BotData contains references to the robots data
 type BotData struct {
 	SPRK      *Sprkbot

@@ -16,6 +16,10 @@ import (
 	"gobot.io/x/gobot/platforms/sphero/sprkplus"
 )
 
+//navigation is used to navigate the sphero automatically. First, record a route using the WASD-keys, then
+//press q to save the route, and start automatic navigation with e. Saving the route generate a nav.xml file, which
+//may also be edited manually. The saved route is also visualized in the nav.png file. All distances are in cm
+
 type sprkbot struct {
 	*sprkplus.SPRKPlusDriver
 	heading       uint16

@@ -7,9 +7,12 @@ import (
 
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/ble"
+	"gobot.io/x/gobot/platforms/sphero"
 	"gobot.io/x/gobot/platforms/sphero/ollie"
 	"gobot.io/x/gobot/platforms/sphero/sprkplus"
 )
+
+//various events and data being read and displayed
 
 func main() {
 
@@ -26,23 +29,23 @@ func main() {
 
 	work := func() {
 		fmt.Println("starting work")
-		// sprk.On("collision", func(data interface{}) {
-		// 	fmt.Print("got collision event")
-		// 	fmt.Println(data)
-		// })
+		sprk.On("collision", func(data interface{}) {
+			fmt.Print("got collision event")
+			fmt.Println(data)
+		})
 
-		// sprk.On("sensordata", func(data interface{}) {
-		// 	cont := data.(sphero.DataStreamingPacket)
-		// 	fmt.Print("got sensorData event")
-		// 	fmt.Println(cont)
-		// 	fmt.Printf("falling:=%d\n", cont.AccelOne)
-		// })
+		sprk.On("sensordata", func(data interface{}) {
+			cont := data.(sphero.DataStreamingPacket)
+			fmt.Print("got sensorData event")
+			fmt.Println(cont)
+			fmt.Printf("falling:=%d\n", cont.AccelOne)
+		})
 
 		fmt.Println(sprk.Events())
 
 		sprk.SetRGB(100, 0, 0)
 
-		// sprk.SetDataStreamingConfig(sphero.DefaultDataStreamingConfig())
+		sprk.SetDataStreamingConfig(sphero.DefaultDataStreamingConfig())
 
 		for i := 0; ; i++ {
 			fmt.Println("requesting power state!")
@@ -60,12 +63,6 @@ func main() {
 		work,
 	)
 
-	sprk.AddEvent("freefall")
-	sprk.AddEvent("landing")
-
 	robot.Start()
-	// bleAdaptor.Subscribe("22bb746f2ba675542d6f726568705327", func(data []byte, e error) {
-	// 	fmt.Println(data)
-	// })
 
 }

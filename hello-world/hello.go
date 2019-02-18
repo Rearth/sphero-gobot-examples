@@ -10,6 +10,8 @@ import (
 	"gobot.io/x/gobot/platforms/sphero/sprkplus"
 )
 
+//simple example program to move the sphero forward, and periodically change lights
+
 func main() {
 
 	//bluetooth adapter
